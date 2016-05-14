@@ -1,16 +1,25 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
+
+class Cat{
+  string name;
+public:
+  Cat (string);//string sとなっていたが，sを省略できるので省略
+  void cry() const;
+};
+
+Cat::Cat(string s) : name(s){}
+//入力された文字sをs=nameとして，nameに代入．
+//Cat::Catと2回書くことに注意
+
+  void Cat::cry() const{//Catクラスのcryという関数を定義
+    cout << "にゃー．名前は" << name << "にゃ" << endl;
+}
 
 int main()
 {
-  string name;
-  int age;
-  cout << "名前を記入してください" << endl;
-  cin >> name; //入力された文章をnameに代入
-  cout << name + "さん，宜しくお願い致します" << endl;
-  cout << "年齢をお願いいたします(半角)" << endl;
-  cin >> age;
-  cout << age << "歳ですね．" << endl;
-  cout << "わたしは2歳のPCです" << endl;
+  Cat dora("ねこねこ");
+  dora.cry();
 }
